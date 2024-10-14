@@ -27,6 +27,7 @@ rag_config/
 
 # Python Artifacts
 python/*/lib/
+dist/
 # Test Output
 .coverage
 coverage/
@@ -67,3 +68,12 @@ ragtest/
 .ragtest/
 .pipelines
 .pipeline
+
+
+# mkdocs
+site/
+
+# Docs migration
+docsite/
+.yarn/
+.pnp*
