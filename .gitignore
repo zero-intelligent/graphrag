@@ -16,7 +16,7 @@ docsite/.yarn/*
 !docsite/.yarn/sdks
 !docsite/.yarn/versions
 docsite/.pnp.*
-
+rag_config/
 .yarn/*
 !.yarn/patches
 !.yarn/releases

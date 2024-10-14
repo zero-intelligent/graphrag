@@ -13,9 +13,15 @@ from graphrag.index.storage import PipelineStorage
 from graphrag.index.typing import ErrorHandlerFn
 
 from .table_emitter import TableEmitter
+from graphrag.index.operations.summarize_communities.typing import CommunityReport_schema
 
 log = logging.getLogger(__name__)
 
+
+def get_schema(name):
+    if name == "create_final_community_reports":
+        return CommunityReport_schema
+    return None
 
 class ParquetTableEmitter(TableEmitter):
     """ParquetTableEmitter class."""
@@ -37,7 +43,8 @@ class ParquetTableEmitter(TableEmitter):
         filename = f"{name}.parquet"
         log.info("emitting parquet table %s", filename)
         try:
-            await self._storage.set(filename, data.to_parquet())
+            schema = get_schema(name)
+            await self._storage.set(filename, data.to_parquet(schema=schema))
         except ArrowTypeError as e:
             log.exception("Error while emitting parquet table")
             self._on_error(

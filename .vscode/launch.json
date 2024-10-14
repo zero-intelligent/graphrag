@@ -7,9 +7,10 @@
 			"type": "debugpy",
 			"request": "launch",
 			"module": "poetry",
+			"justMyCode": false,
 			"args": [
 				"poe", "index",
-				"--root", "<path_to_ragtest_root_demo>"
+				"--root", "./rag_config"
 			],
 		},
 		{
@@ -17,11 +18,12 @@
 			"type": "debugpy",
 			"request": "launch",
 			"module": "poetry",
+			"justMyCode": false,
 			"args": [
 				"poe", "query",
-				"--root", "<path_to_ragtest_root_demo>",
+				"--root", "./rag_config",
 				"--method", "global",
-				"What are the top themes in this story",
+				"脑、神经系统疾病有哪些？",
 			]
 		},
 		{
@@ -29,10 +31,11 @@
 			"type": "debugpy",
 			"request": "launch",
 			"module": "poetry",
+			"justMyCode": false,
 			"args": [
 				"poe", "prompt_tune",
 				"--config",
-				"<path_to_ragtest_root_demo>/settings.yaml",
+				"./rag_config/settings.yaml",
 			]
 		}
 	]

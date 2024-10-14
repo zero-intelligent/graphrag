@@ -76,6 +76,8 @@ class CommunityReportsExtractor:
                 or {}
             )
             output = response.json or {}
+            if not all(isinstance(item, dict) for item in output.get("findings",[])):
+                output = {}
         except Exception as e:
             log.exception("error generating community report")
             self._on_error(e, traceback.format_exc(), None)
