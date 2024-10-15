@@ -43,8 +43,8 @@ class ParquetTableEmitter(TableEmitter):
         filename = f"{name}.parquet"
         log.info("emitting parquet table %s", filename)
         try:
-            schema = get_schema(name)
-            await self._storage.set(filename, data.to_parquet(schema=schema))
+            # schema = get_schema(name)
+            await self._storage.set(filename, data.to_parquet())
         except ArrowTypeError as e:
             log.exception("Error while emitting parquet table")
             self._on_error(
